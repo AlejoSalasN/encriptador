@@ -10,6 +10,12 @@ window.addEventListener("resize", function () {
   }
 });
 
+let input = document.getElementById("mensaje");
+
+input.addEventListener("input", function () {
+  input.value = input.value.toLowerCase();
+});
+
 const encriptar = () => {
   let expresion = /^[a-z0-9\!¡¿?.,;:*+/&%$#_ -]+$/gi;
   const mensaje = document.getElementById("mensaje").value;
