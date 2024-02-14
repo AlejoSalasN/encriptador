@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="shortcut icon" href="assets/candado.ico" type="image/x-icon">
     <title>Encriptador</title>
 </head>
@@ -16,22 +16,27 @@
     </header>
     <main>
         <div class="principal texto">
-            <textarea id="mensaje" type="text" placeholder="Escriba el texto aquí..." rows="21"></textarea>
-            <b>⚠️ Solo letras minúsculas y sin acentos.</b>
-            <div class="botones-encriptacion">
-                <button onclick="encriptar();" class="btn-1">Encriptar</button>
-                <button onclick="desencriptar();" class="btn-2">Desencriptar</button>
+            <textarea id="mensaje" type="text" placeholder="Escriba el texto aquí..." class="area-encriptacion"
+                rows="10"></textarea>
+
+            <div class="botones">
+                <span>⚠️ Solo letras minúsculas y sin acentos.</span>
+                <div class="botones-encriptacion">
+                    <button onclick="encriptar();" class="btn-1">Encriptar</button>
+                    <button onclick="desencriptar();" class="btn-2">Desencriptar</button>
+                </div>
+
             </div>
         </div>
         <div class="principal mensaje">
-            <div id="imagen" class="centrar">
+            <div id="imagen" class="imagen-texto">
                 <img src="assets/gato.jpeg" alt="imagen de referencia">
-                <p class="mensaje-no-encontrado">Ningún mensaje fue encontrado</p>
+                <p>Ningún mensaje fue encontrado</p>
                 <p>Ingresa el texto que deseas encriptar o desencriptar.</p>
             </div>
-            <div id="encriptado" class="mensaje-encriptado centrar ocultar">
-                <textarea id="m-encriptado" class="m-encriptado" rows="22"></textarea>
-                <button onclick="copiar()" class="btn-2 btn-copiar">Copiar</button>
+            <div id="encriptado" class="texto-encriptado ocultar">
+                <textarea id="m-encriptado" class="area-encriptada" rows="10" disabled></textarea>
+                <button onclick="copiar()" class="btn-3">Copiar</button>
             </div>
         </div>
     </main>

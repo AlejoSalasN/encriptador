@@ -1,3 +1,15 @@
+window.addEventListener("resize", function () {
+  let screenWidth = window.innerWidth;
+  let textarea = document.getElementById("mensaje");
+  let areaEncriptada = document.getElementById("m-encriptado");
+  if (screenWidth <= 768) {
+    textarea.setAttribute("rows", "12");
+    areaEncriptada.setAttribute("rows", "12");
+  } else {
+    textarea.setAttribute("rows", "18");
+  }
+});
+
 const encriptar = () => {
   let expresion = /^[a-z0-9\!¡¿?.,;:*+/&%$#_ -]+$/gi;
   const mensaje = document.getElementById("mensaje").value;
@@ -32,7 +44,6 @@ const encriptar = () => {
 const desencriptar = () => {
   let expresion = /^[a-z0-9\!¡¿?.,;:*+/&%$#_ -]+$/gi;
   const mensaje_encriptado = document.getElementById("mensaje").value;
-  console.log(mensaje_encriptado);
   if (
     expresion.test(mensaje_encriptado) &&
     contienePatronEncriptacion(mensaje_encriptado)
@@ -66,12 +77,17 @@ const contienePatronEncriptacion = (texto) => {
 
 const copiar = () => {
   const texto_copiar = document.getElementById("m-encriptado").value;
-  navigator.clipboard
-    .writeText(texto_copiar)
-    .then(() => {
-      alert("Texto copiado.");
-    })
-    .catch((error) => {
-      alert("Error al copiar: ", error);
-    });
+  let screenWidth = window.innerWidth;
+  if (screenWidth <= 768) {
+    document.getElementById("mensaje").value = texto_copiar;
+  } else {
+    navigator.clipboard
+      .writeText(texto_copiar)
+      .then(() => {
+        alert("Texto copiado.");
+      })
+      .catch((error) => {
+        alert("Error al copiar: ", error);
+      });
+  }
 };
