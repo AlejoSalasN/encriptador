@@ -18,7 +18,7 @@ input.addEventListener("input", function () {
 
 const encriptar = () => {
   let expresion = /^[a-z0-9\!¡¿?.,;:*+/&%$#_ -]+$/gi;
-  const mensaje = document.getElementById("mensaje").value;
+  const mensaje = document.getElementById("mensaje").value.trim();
   if (expresion.test(mensaje)) {
     document.getElementById("imagen").classList.add("ocultar");
     document.getElementById("encriptado").classList.remove("ocultar");
@@ -42,14 +42,16 @@ const encriptar = () => {
       i++;
     }
     document.getElementById("m-encriptado").value = mensaje_encriptado;
+    document.getElementById("mensaje").value = "";
   } else {
     alert("Ingrese una cadena de texto válida");
+    document.getElementById("mensaje").value = "";
   }
 };
 
 const desencriptar = () => {
   let expresion = /^[a-z0-9\!¡¿?.,;:*+/&%$#_ -]+$/gi;
-  const mensaje_encriptado = document.getElementById("mensaje").value;
+  const mensaje_encriptado = document.getElementById("mensaje").value.trim();
   if (
     expresion.test(mensaje_encriptado) &&
     contienePatronEncriptacion(mensaje_encriptado)
@@ -71,8 +73,10 @@ const desencriptar = () => {
       i++;
     }
     document.getElementById("m-encriptado").value = mensaje_desencriptado;
+    document.getElementById("mensaje").value = "";
   } else {
     alert("Ingrese una cadena de texto válida");
+    document.getElementById("mensaje").value = "";
   }
 };
 
